@@ -1,0 +1,87 @@
+-- Create a table for the august twitter sentiments 
+CREATE TABLE aug_twitter_sentiments
+(Date date,
+Text varchar,
+Negative numeric,
+Neutral numeric,
+Positive numeric
+);
+
+-- Create a table for the events 
+CREATE TABLE Events_UA
+(Date date,
+ Event varchar,
+ Weight decimal
+);
+
+-- Upload CSV Files
+-- Check both tables to make sure the data uploaded correctly 
+SELECT * FROM aug_twitter_sentiments;
+SELECT * FROM Events_UA; 
+
+-- Join the two tables and create a joined table 
+CREATE TABLE joined AS (
+SELECT aug_twitter_sentiments.date, aug_twitter_sentiments.text, 
+aug_twitter_sentiments.negative, aug_twitter_sentiments.neutral, 
+aug_twitter_sentiments.positive, Events_UA.event, Events_UA.weight 
+FROM aug_twitter_sentiments
+LEFT JOIN Events_UA ON
+aug_twitter_sentiments.date = Events_UA.date);
+
+-- Check the joined table to make sure all the data is there
+SELECT * FROM joined; 
+
+-- Create a table for sample events
+-- these are the headers: date event weight week search_results 
+CREATE TABLE sample_events
+(Date date,
+ Event varchar,
+ Weight decimal, 
+ week varchar,
+ search_results varchar
+);
+
+-- check to make sure it has worked
+SELECT * FROM sample_events; 
+
+-- Create a table for cleaned tweets 
+
+-- Use following to derived week from into new table aug_twitter_sentiments table in order to join by week 
+select *, 
+EXTRACT(WEEK FROM date) as week
+from aug_twitter_sentiments;
+
+-- Use following to derived week from into new table events_ua table to join by week
+select *, 
+EXTRACT(WEEK FROM date) as week
+from events_ua;
+
+-- Create new tables incorporating the queries above 
+SELECT *, 
+EXTRACT(WEEK FROM date) AS week 
+INTO tweets_week
+FROM aug_twitter_sentiments; 
+
+-- check
+SELECT * FROM tweets_week;
+
+SELECT *, 
+EXTRACT(WEEK FROM date) as week
+INTO events_week
+FROM events_ua;
+
+-- check
+SELECT * FROM events_week; 
+
+-- join the tables in a new table 
+CREATE TABLE joined AS (
+SELECT tweets_week.week,
+tweets_week.text, 
+tweets_week.negative, tweets_week.neutral, 
+tweets_week.positive, events_week.event, events_week.weight
+FROM tweets_week
+LEFT JOIN events_week ON
+tweets_week.week = events_week.week); 
+
+-- Check for data
+SELECT * FROM joined; 

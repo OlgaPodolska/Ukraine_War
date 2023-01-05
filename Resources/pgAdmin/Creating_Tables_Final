@@ -1,0 +1,34 @@
+-- Create a table for the august twitter sentiments 
+CREATE TABLE aug_twitter_sentiments
+(Date date,
+Text varchar,
+Negative numeric,
+Neutral numeric,
+Positive numeric
+);
+
+-- Create a table for the events 
+CREATE TABLE Events_UA
+(Date date,
+ Event varchar,
+ Weight decimal
+);
+
+-- Upload CSV Files
+-- Check both tables to make sure the data uploaded correctly 
+SELECT * FROM aug_twitter_sentiments;
+SELECT * FROM Events_UA; 
+
+-- Join the two tables and create a joined table 
+CREATE TABLE joined AS (
+SELECT aug_twitter_sentiments.date, aug_twitter_sentiments.text, 
+aug_twitter_sentiments.negative, aug_twitter_sentiments.neutral, 
+aug_twitter_sentiments.positive, Events_UA.event, Events_UA.weight 
+FROM aug_twitter_sentiments
+LEFT JOIN Events_UA ON
+aug_twitter_sentiments.date = Events_UA.date);
+
+-- Check the joined table to make sure all the data is there
+SELECT * FROM joined; 
+
+
