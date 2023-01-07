@@ -152,7 +152,7 @@ LabelEncoder algorithm
 LightGBM Classifier model  
 RoBERTa (pretrained deep neuron network model)  
 pgAdmin                   4.6.8    
-postgresql              10.2.16 
+postgresql              10.2.16   
 Tableau Public 
 
 ## Data Visualization 
