@@ -72,5 +72,5 @@ To do:
 2 – Jesse   (+Olga) deadline Saturday 08.27 at 11 pm  
 3 – Jaymee  (+Vero) deadline Sunday 08.28 at 11 pm  
 4 – Vero    (+Jaymee) deadline Monday 08.29 at 6 pm  
-5 – Olga    (+Jesse) deadline Wednesday 08.31 at 6 pm  
+5 – Olga    (+Jesse) deadline Wednesday 08.31 at 6 pm   
 Presentation - Olga, deadline Sunday 09.04 at 11 pm  
