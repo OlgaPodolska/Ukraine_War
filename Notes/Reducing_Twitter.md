@@ -12,7 +12,7 @@ Unfortunately, it definitely will skew our data, hashtags popularity changes all
 
 The same problem is with many another ways of reducing. We don’t know users gender, age, geographical position to make a selection according to these parameters. Any selection according to the content of the tweet - quote, retweet, hashtags – skew out data.
 
-
+  
 But!
 
 ## How and Why we can reduce
