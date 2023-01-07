@@ -17,7 +17,7 @@
 * Includes at least one connection string (using SQLAlchemy or PyMongo)
 * If you use a SQL database, you must provide your ERD with relationships.
 
-4. Dashboard **Jesse** (+Olga), deadline Friday 09.03 at 11 pm  
+4. Dashboard **Jesse** (+Olga), deadline Friday 09.03 at 11 pm    
 * Storyboard on a Google Slide(s)
 * Description of the tool(s) that will be used to create the final dashboard
 * Description of interactive element(s)
