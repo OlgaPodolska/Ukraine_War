@@ -7,7 +7,7 @@ Neutral numeric,
 Positive numeric
 );
 
--- Create a table for the events 
+-- Create a table for the event 
 CREATE TABLE Events_UA
 (Date date,
  Event varchar,
